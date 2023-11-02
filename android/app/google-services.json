@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "213012481780",
+    "project_id": "bookme-ef465",
+    "storage_bucket": "bookme-ef465.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213012481780:android:5e33212c986904d842c0a1",
+        "android_client_info": {
+          "package_name": "com.example.bookme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg8zJdXr-AAWQ18oTUSJEu1wDXs9jdnbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213012481780:android:7ce14d23415e7af642c0a1",
+        "android_client_info": {
+          "package_name": "com.example.bookmebusiness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg8zJdXr-AAWQ18oTUSJEu1wDXs9jdnbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
