@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:marquee/marquee.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({@required this.document});
@@ -32,7 +33,8 @@ class _HomePageState extends State<HomePage> {
               );
             }
             return ListView(
-              children: snapshot.data!.docs.map((document) {
+              children : snapshot.data!.docs.map((document) {
+
                 return Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
@@ -53,29 +55,44 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: 20,),
                       Row(
                         children: [
-                          Text(document["name"], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(document["name"], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          ),
                           Spacer(),
-                          Text(document["service"], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(document["service"], style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          ),
                         ],
                       ),
                       SizedBox(height: 20,),
                       Row(
                         children: [
-                          Text("${formattedDate(document["date"])}: ${document["time"]}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("${formattedDate(document["date"])}: ${document["time"]}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          ),
                           Spacer(),
-                          Text(document["price"], style: TextStyle(fontSize: 20),)
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Text(document["price"], style: TextStyle(fontSize: 20),),
+                          )
                         ],
                       ),
                       SizedBox(height: 20,),
-                      Center(
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.black
-                            ),
-                          child: Text("Done", style: TextStyle(color: Colors.red),),
-                          onPressed: () async{
-                            await FirebaseFirestore.instance.collection("Services").doc(document.id).delete();
-                          },
+                      Container(
+
+                        child: Center(
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.red
+                              ),
+                            child: Text("Done", style: TextStyle(color: Colors.white),),
+                            onPressed: () async{
+                              await FirebaseFirestore.instance.collection("Services").doc(document.id).delete();
+                            },
+                          ),
                         ),
                       )
 
@@ -84,9 +101,10 @@ class _HomePageState extends State<HomePage> {
                 );
               }).toList(),
             );
+
           },
         ),
-      )
+      ),
     );
   }
   String formattedDate(timeStamp){
